@@ -1,0 +1,73 @@
+body,
+ul {
+  margin: 0;
+  padding: 0;
+}
+main {
+  min-height: 75vh;
+}
+body {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo {
+  width: 40px;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  transition: 0.2s;
+}
+
+nav a:hover {
+  color: rgb(118, 205, 240);
+}
+
+footer p {
+  text-align: center;
+}
+
+.bucket_list a {
+  text-decoration: none;
+  color: black;
+  transition: 0.2s;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 5px 5px;
+}
+
+.bucket_list li {
+  margin: 15px 20px;
+  list-style: none;
+  transition: 0.2s;
+}
+.bucket_list li:hover {
+  margin: 15px 20px;
+  list-style: none;
+  transform: scale(1.2);
+}
+.bucket_list a:hover {
+  color: rgb(230, 162, 162);
+}
+
+.bucket_list {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

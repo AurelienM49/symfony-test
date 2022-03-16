@@ -2,23 +2,63 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>{% block title %}Welcome!{% endblock %}</title>
     <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>"
+      rel="shortcut icon"
+      href="{{ asset('img/favicon.png') }}"
+      type="image/x-icon"
     />
-    {# Run `composer require symfony/webpack-encore-bundle` to start using
-    Symfony UX #} {% block stylesheets %}
-    {{
-      encore_entry_link_tags("app")
-    }}
-    {% endblock %} {% block javascripts %}
-    {{
-      encore_entry_script_tags("app")
-    }}
-    {% endblock %}
+    <title>{% block title %}Bucket-List{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    {% block stylesheets %} {% endblock %}{% block javascripts %}
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+      integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+      crossorigin="anonymous"
+    ></script>
+    {% block javascriptshead %}
   </head>
   <body>
-    {% block body %}{% endblock %}
+    {% set menu = {"Accueil": "app_main","Contact": "app_about_us","Bucket
+    List": "app_wish_list"} %}
+    <div class="grid-container">
+      <header>
+        <div class="header-top">
+          <div class="first">
+            <img
+              class="logo"
+              src="{{ asset('img/logo.png') }}"
+              alt="logo bucket list"
+            />
+          </div>
+          <div class="second">
+            <nav>
+              <ul>
+                {% for key,value in menu %}
+                <li>
+                  {% if value != "#" %}
+                  <a href="{{ path(value) }}">
+                    {{ key }}
+                  </a>
+                  {% else %}
+                  <a href="#">
+                    {{ key }}
+                  </a>
+                  {% endif %}
+                </li>
+                {% endfor %}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main>{% block body %}{% endblock %}</main>
+      <footer>
+        <p>
+          &copy; Bucket-List {{"now"|date("Y") }} {#
+          <a href="{{ path(app_legal_stuff) }}">Mentions Légales</a> #}
+        </p>
+      </footer>
+    </div>
+    {% block javascriptsbody %} {% endblock %}
   </body>
 </html>

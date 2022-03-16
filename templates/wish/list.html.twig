@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %} {% block body %}
+
+<ul class="bucket_list">
+  {% set cpt = 0 %} {% for key,value in bucketList %} {% set cpt = cpt + 1 %}
+  <li>
+    {% if value != "#" %}
+    <a href="{{ path(value, { id: cpt }) }}">
+      {{ key }}
+    </a>
+    {% else %}
+    <a href="#">
+      {{ key }}
+    </a>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
